@@ -47,4 +47,4 @@ def stampa_utenti(*utenti):  # Definisce una funzione che stampa tutti gli utent
             password_oculta += "*"  # Aggiunge un asterisco alla password nascosta per ogni carattere della password originale
         print("Username: " + user + ", Password: " + password_oculta)  # Stampa lo username e la password nascosta, dove la password viene mostrata solo come asterischi
 
-stampa_utenti(*utenti)  # Passa tutti gli utenti registrati (tutti gli elementi della lista 'utenti') come argomenti alla funzione 'stampa_utenti'
+stampa_utenti(*utenti)  # Passa tutti gli utenti registrati (tutti gli elementi della lista 'utenti') come argomenti alla funzione 'stampa_utenti
