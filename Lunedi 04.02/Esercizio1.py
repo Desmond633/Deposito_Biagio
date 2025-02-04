@@ -37,25 +37,3 @@ class Fabbrica:
             print(f"Venduti {quantita} {prodotto.nome}. Profitto totale: {profitto_totale}€")
         else:
             print(f"Errore: {prodotto.nome} non disponibile in quantità sufficiente.")
-    
-    def resi_prodotto(self, prodotto, quantita):
-        if prodotto.nome in self.inventario:
-            self.inventario[prodotto.nome] += quantita  # Aumenta la quantità disponibile
-        else:
-            self.inventario[prodotto.nome] = quantita  # Crea una nuova voce nell'inventario
-        print(f"Restituiti {quantita} {prodotto.nome} all'inventario.")
-        # Esempio di utilizzo delle classi
-if __name__ == "__main__":
-    # Creiamo alcuni prodotti
-    telefono = Elettronica("Smartphone", 200, 500, "2 anni")
-    maglietta = Abbigliamento("Maglietta", 10, 25, "Cotone")
-    # Creiamo una fabbrica
-    fabbrica = Fabbrica()
-    # Aggiungiamo prodotti all'inventario
-    fabbrica.aggiungi_prodotto(telefono, 50)
-    fabbrica.aggiungi_prodotto(maglietta, 100)
-    # Vendiamo alcuni prodotti
-    fabbrica.vendi_prodotto(telefono, 5)
-    fabbrica.vendi_prodotto(maglietta, 10)
-    # Gestiamo un reso
-    fabbrica.resi_prodotto(maglietta, 3)
