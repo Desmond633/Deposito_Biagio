@@ -18,22 +18,28 @@ class Abbigliamento(Prodotto):
     def __init__(self, nome, costo_produzione, prezzo_vendita, materiale):
         super().__init__(nome, costo_produzione, prezzo_vendita)  # attributi della classe base
         self.materiale = materiale  # nuovo attributo specifico per abbigliamento
-        # Definizione della classe Fabbrica per gestire l'inventario
-class Fabbrica:
+        # classe Fabbrica 
     def __init__(self):
-        self.inventario = {}  # Dizionario che memorizza i prodotti e le loro quantità
+        self.inventario = {}  # dizionario che memorizza i prodotti e le loro quantità
     
     def aggiungi_prodotto(self, prodotto, quantita):
         if prodotto.nome in self.inventario:
-            self.inventario[prodotto.nome] += quantita  # Aggiunge alla quantità esistente
+            self.inventario[prodotto.nome] += quantita  # aggiunge alla quantità esistente
         else:
-            self.inventario[prodotto.nome] = quantita  # Crea una nuova voce nell'inventario
+            self.inventario[prodotto.nome] = quantita 
         print(f"Aggiunti {quantita} {prodotto.nome} all'inventario.")
     
     def vendi_prodotto(self, prodotto, quantita):
         if prodotto.nome in self.inventario and self.inventario[prodotto.nome] >= quantita:
-            self.inventario[prodotto.nome] -= quantita  # Riduce la quantità disponibile
-            profitto_totale = prodotto.calcola_profitto() * quantita  # Calcola il profitto totale
+            self.inventario[prodotto.nome] -= quantita  
+            profitto_totale = prodotto.calcola_profitto() * quantita 
             print(f"Venduti {quantita} {prodotto.nome}. Profitto totale: {profitto_totale}€")
         else:
             print(f"Errore: {prodotto.nome} non disponibile in quantità sufficiente.")
+    
+    def resi_prodotto(self, prodotto, quantita):
+        if prodotto.nome in self.inventario:
+            self.inventario[prodotto.nome] += quantita  
+        else:
+            self.inventario[prodotto.nome] = quantita  
+        print(f"Restituiti {quantita} {prodotto.nome} all'inventario.")
